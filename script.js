@@ -88,27 +88,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Project Modal System
   const projectData = {
-    // 'grow-healthy': {
-    //   title: 'Grow Healthy Platform',
-    //   icon: '🏥',
-    //   description: 'A comprehensive ERPNext-based healthcare ERP system designed for research institutes, featuring advanced admin dashboards and patient health tracking modules.',
-    //   details: [
-    //     'Custom healthcare modules built on ERPNext framework',
-    //     'Real-time patient health tracking and monitoring',
-    //     'Advanced admin dashboards with analytics and reporting',
-    //     'Research data management and compliance tracking',
-    //     'Integration with medical devices and lab systems',
-    //     'Role-based access control for different user types'
-    //   ],
-    //   technologies: ['ERPNext', 'Frappe Framework', 'Python', 'JavaScript', 'MySQL', 'REST APIs'],
-    //   features: [
-    //     'Patient health records management',
-    //     'Research data collection and analysis',
-    //     'Automated reporting and dashboards',
-    //     'Multi-institute support',
-    //     'Compliance and audit trails'
-    //   ]
-    // },
+    'grow-healthy': {
+      title: 'Grow Healthy Platform',
+      icon: '🏥',
+      description: 'A comprehensive ERPNext-based healthcare ERP system designed for research institutes, featuring advanced admin dashboards and patient health tracking modules.',
+      details: [
+        'Custom healthcare modules built on ERPNext framework',
+        'Real-time patient health tracking and monitoring',
+        'Advanced admin dashboards with analytics and reporting',
+        'Research data management and compliance tracking',
+        'Integration with medical devices and lab systems',
+        'Role-based access control for different user types'
+      ],
+      technologies: ['ERPNext', 'Frappe Framework', 'Python', 'JavaScript', 'MySQL', 'REST APIs'],
+      features: [
+        'Patient health records management',
+        'Research data collection and analysis',
+        'Automated reporting and dashboards',
+        'Multi-institute support',
+        'Compliance and audit trails'
+      ]
+    },
     'real-estate': {
       title: 'Real Estate ERP',
       icon: '🏢',
@@ -159,13 +159,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll('[data-project]');
 
   function openModal(projectId) {
+    if (!projectModal) return; // Guard: modal doesn't exist on this page
+    
     const project = projectData[projectId];
     if (!project) return;
 
-    document.getElementById('modal-title').textContent = project.title;
-    document.getElementById('modal-icon').textContent = project.icon;
-    
+    const modalTitle = document.getElementById('modal-title');
+    const modalIcon = document.getElementById('modal-icon');
     const modalContent = document.getElementById('modal-content');
+    
+    if (!modalTitle || !modalIcon || !modalContent) return;
+
+    modalTitle.textContent = project.title;
+    modalIcon.textContent = project.icon;
+    
     modalContent.innerHTML = `
       <div>
         <p class="text-gray-300 text-lg leading-relaxed mb-6">${project.description}</p>
@@ -212,34 +219,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeModal() {
+    if (!projectModal) return; // Guard: modal doesn't exist on this page
     projectModal.classList.add('hidden');
     projectModal.classList.remove('flex');
     document.body.style.overflow = '';
   }
 
-  // Event listeners
-  projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const projectId = card.getAttribute('data-project');
-      openModal(projectId);
+  // Event listeners - only if modal exists on this page
+  if (projectModal) {
+    // Project card click handlers
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const projectId = card.getAttribute('data-project');
+        openModal(projectId);
+      });
     });
-  });
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
+    // Close button handler
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    // Close modal on backdrop click
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal && !projectModal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
   }
-
-  // Close modal on backdrop click
-  projectModal.addEventListener('click', (e) => {
-    if (e.target === projectModal) {
-      closeModal();
-    }
-  });
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
 });
