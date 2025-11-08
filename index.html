@@ -1,58 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mavee Shah | Frappe ERPNext Developer</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ameer Muavia Shah - Software Engineer specializing in ERPNext, Frappe Framework, and Python automation. 5+ years of experience building enterprise ERP solutions." />
+  <meta name="keywords" content="Software Engineer, ERPNext, Frappe, Python, ERP, Automation, Integration" />
+  <meta name="author" content="Ameer Muavia Shah" />
+  <title>Ameer Muavia Shah | Software Engineer | ERPNext & Frappe Specialist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-in-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'gradient': 'gradient 8s ease infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #064e3b, #065f46, #047857, #059669);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    #mobile-menu-button.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #mobile-menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+    #mobile-menu-button.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  </style>
+  <script defer src="script.js"></script>
 </head>
-<script src="script.js"></script>
 
-<body>
-
-  <header>
-    <h1>👋 Hi, I'm Mavee!</h1>
-    <p>ERPNext Developer | Frappe Enthusiast | Aspiring Software House Owner</p>
-    <nav>
-      <a href="#about">About Me</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
+    <div class="flex justify-between items-center px-4 sm:px-8 py-5">
+      <a href="index.html" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+        Ameer Muavia Shah
+      </a>
+      <nav class="hidden md:flex space-x-6 text-gray-300">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors active">Home</a>
+        <a href="projects.html" class="hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="about.html" class="hover:text-emerald-400 transition-colors">About</a>
+        <a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5 w-6 h-6 focus:outline-none">
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/98 backdrop-blur-sm">
+      <div class="flex flex-col px-4 py-4 space-y-3">
+        <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors active">Home</a>
+        <a href="projects.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="about.html" class="text-gray-300 hover:text-emerald-400 transition-colors">About</a>
+        <a href="contact.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>From Islamabad, Pakistan, I'm a Frappe ERPNext developer with over five years of experience...</p>
-  </section>
+  <main class="min-h-[85vh]">
+    <section class="flex flex-col items-center justify-center text-center min-h-[85vh] px-4 relative overflow-hidden">
+      <div class="absolute inset-0 gradient-bg opacity-10"></div>
+      <div class="relative z-10 max-w-4xl fade-in-on-scroll">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
+          Hi, I'm <span class="text-emerald-400 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Ameer Muavia Shah</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-300 mb-4 animate-slide-up" style="animation-delay: 0.2s">
+          Software Engineer
+        </p>
+        <p class="text-lg sm:text-xl text-gray-400 mb-10 animate-slide-up" style="animation-delay: 0.4s">
+          Frappe & ERPNext Specialist | Python | Automation & Integration Expert
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style="animation-delay: 0.6s">
+          <a href="projects.html" class="px-8 py-3.5 bg-emerald-500 text-black font-semibold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all shadow-lg shadow-emerald-500/30">
+            View My Work
+          </a>
+          <a href="contact.html" class="px-8 py-3.5 border-2 border-emerald-400 text-emerald-400 font-semibold rounded-full hover:bg-emerald-400 hover:text-black transition-all">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <section id="skills">
-    <h2>Skills & Tools</h2>
-    <ul>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>SQL</li>
-      <li>ERPNext</li>
-      <li>Frappe</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Featured Projects</h2>
-    <div class="project">
-      <h3>Advanced Notification Module</h3>
-      <p>Flexible notification system built with React and Frappe backend.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:mavee.shah@hotmail.com">mavee.shah@hotmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/ameer-muavia-shah/">LinkedIn</a> | <a href="https://github.com/pythonkage">GitHub</a></p>
-  </section>
-
-  <footer>
-    <p>© 2024 Mavee Shah. All Rights Reserved.</p>
+  <footer class="text-center py-8 border-t border-gray-800 text-sm text-gray-500">
+    <p>© 2025 Ameer Muavia Shah — Built with 💚 on GitHub Pages</p>
   </footer>
 </body>
 </html>

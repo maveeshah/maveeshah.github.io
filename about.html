@@ -1,22 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mavee</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about Ameer Muavia Shah - Software Engineer with 5+ years of experience in ERPNext, Frappe Framework, and Python automation." />
+  <title>About | Ameer Muavia Shah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #mobile-menu-button.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #mobile-menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+    #mobile-menu-button.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  </style>
+  <script defer src="script.js"></script>
 </head>
-<body>
-    <header>
-        <h1>About Me</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <section>
-        <p>With over three years of experience in ERPNext and Frappe development, I specialize in customizing systems to meet client needs and exceed expectations.</p>
+
+<body class="bg-gray-950 text-gray-100 font-sans antialiased">
+  <header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
+    <div class="flex justify-between items-center px-4 sm:px-8 py-5">
+      <a href="index.html" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+        Ameer Muavia Shah
+      </a>
+      <nav class="hidden md:flex space-x-6 text-gray-300">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors">Home</a>
+        <a href="projects.html" class="hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="about.html" class="hover:text-emerald-400 transition-colors active">About</a>
+        <a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5 w-6 h-6 focus:outline-none">
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/98 backdrop-blur-sm">
+      <div class="flex flex-col px-4 py-4 space-y-3">
+        <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Home</a>
+        <a href="projects.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="about.html" class="text-gray-300 hover:text-emerald-400 transition-colors active">About</a>
+        <a href="contact.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto py-12 sm:py-20 px-6">
+    <section class="fade-in-on-scroll">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-8 text-emerald-400">About Me</h1>
+      <div class="space-y-6 text-gray-300 leading-relaxed">
+        <p class="text-lg">
+          I'm a Software Engineer specializing in <strong class="text-emerald-400">ERPNext</strong> and <strong class="text-emerald-400">Frappe Framework</strong>, with <strong class="text-emerald-400">5+ years</strong> of experience building enterprise-grade ERP solutions across construction, healthcare, and manufacturing sectors.
+        </p>
+        <p class="text-lg">
+          I design and implement complete systems — from workflows, reporting dashboards, and data automation to API integrations — delivering scalable, maintainable, and secure ERP environments.
+        </p>
+        <p class="text-lg">
+          Outside of work, I love exploring automotive builds, watching anime, and spending time with my two daughters, <strong class="text-emerald-400">Rumaisa</strong> and <strong class="text-emerald-400">Furia'h</strong>.
+        </p>
+      </div>
     </section>
+
+    <section class="mt-16 fade-in-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-emerald-400">Skills & Expertise</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-emerald-500/50 transition-all">
+          <h3 class="text-xl font-semibold mb-3 text-emerald-400">ERP Platforms</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>• ERPNext</li>
+            <li>• Frappe Framework</li>
+            <li>• Custom ERP Development</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-emerald-500/50 transition-all">
+          <h3 class="text-xl font-semibold mb-3 text-emerald-400">Programming</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>• Python</li>
+            <li>• JavaScript</li>
+            <li>• API Development</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-emerald-500/50 transition-all">
+          <h3 class="text-xl font-semibold mb-3 text-emerald-400">Specializations</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>• Automation & Integration</li>
+            <li>• Workflow Design</li>
+            <li>• Data Analytics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-8 border-t border-gray-800 text-sm text-gray-500 mt-16">
+    <p>© 2025 Ameer Muavia Shah — Frappe | ERPNext | Python</p>
+  </footer>
 </body>
 </html>
