@@ -23,6 +23,22 @@
     #mobile-menu-button.active span:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px);
     }
+    .modal-content {
+      animation: modalSlideIn 0.3s ease-out;
+    }
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    #project-modal {
+      animation: fadeIn 0.2s ease-out;
+    }
   </style>
   <script defer src="script.js"></script>
 </head>
@@ -57,74 +73,95 @@
 
   <main class="max-w-7xl mx-auto py-12 sm:py-20 px-6">
     <section class="fade-in-on-scroll">
+      <div class="text-center mb-6">
+        <div class="inline-block px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
+          <span class="text-emerald-400 text-sm font-medium">Featured Projects</span>
+        </div>
+      </div>
       <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-emerald-400 text-center">Featured Projects</h1>
       <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
         Enterprise-grade ERP solutions and automation tools built with ERPNext, Frappe Framework, and Python.
       </p>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 fade-in-on-scroll">
+        <div class="bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-gray-800/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-2 fade-in-on-scroll group cursor-pointer" data-project="grow-healthy">
           <div class="mb-4">
-            <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
-              <span class="text-2xl">🏥</span>
+            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🏥</span>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Grow Healthy Platform</h3>
+            <h3 class="text-xl font-semibold mb-3 text-emerald-400 group-hover:text-emerald-300 transition-colors">Grow Healthy Platform</h3>
           </div>
           <p class="text-gray-400 text-sm mb-4 leading-relaxed">
             ERPNext-based healthcare ERP for research institutes, with admin dashboards and patient health tracking modules.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">ERPNext</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Healthcare</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Dashboards</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">ERPNext</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Healthcare</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Dashboards</span>
           </div>
-          <a href="#" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-1">
-            View Project <span>→</span>
-          </a>
+          <button class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-2 group-hover:gap-3">
+            View Project <span class="text-lg">→</span>
+          </button>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 fade-in-on-scroll" style="animation-delay: 0.1s">
+        <div class="bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-gray-800/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-2 fade-in-on-scroll group cursor-pointer" data-project="real-estate" style="animation-delay: 0.1s">
           <div class="mb-4">
-            <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
-              <span class="text-2xl">🏢</span>
+            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🏢</span>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Real Estate ERP</h3>
+            <h3 class="text-xl font-semibold mb-3 text-emerald-400 group-hover:text-emerald-300 transition-colors">Real Estate ERP</h3>
           </div>
           <p class="text-gray-400 text-sm mb-4 leading-relaxed">
             Custom Frappe app for property management, project accounting, and approval workflows.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Frappe</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Real Estate</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Workflows</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Frappe</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Real Estate</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Workflows</span>
           </div>
-          <a href="#" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-1">
-            View Project <span>→</span>
-          </a>
+          <button class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-2 group-hover:gap-3">
+            View Project <span class="text-lg">→</span>
+          </button>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 fade-in-on-scroll" style="animation-delay: 0.2s">
+        <div class="bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-gray-800/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-2 fade-in-on-scroll group cursor-pointer" data-project="automation" style="animation-delay: 0.2s">
           <div class="mb-4">
-            <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
-              <span class="text-2xl">⚙️</span>
+            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">⚙️</span>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Automation Suite</h3>
+            <h3 class="text-xl font-semibold mb-3 text-emerald-400 group-hover:text-emerald-300 transition-colors">Automation Suite</h3>
           </div>
           <p class="text-gray-400 text-sm mb-4 leading-relaxed">
             Python-based automation toolkit integrated with ERPNext to streamline repetitive admin and HR tasks.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Python</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Automation</span>
-            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded">Integration</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Python</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Automation</span>
+            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-full font-medium">Integration</span>
           </div>
-          <a href="#" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-1">
-            View Project <span>→</span>
-          </a>
+          <button class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-2 group-hover:gap-3">
+            View Project <span class="text-lg">→</span>
+          </button>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 rounded-2xl border border-gray-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl modal-content">
+      <div class="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+        <h2 id="modal-title" class="text-2xl font-bold text-emerald-400"></h2>
+        <button id="close-modal" class="text-gray-400 hover:text-emerald-400 transition-colors text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-800">
+          ×
+        </button>
+      </div>
+      <div class="p-6 sm:p-8">
+        <div id="modal-icon" class="text-6xl mb-6"></div>
+        <div id="modal-content" class="space-y-6"></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="text-center py-8 border-t border-gray-800 text-sm text-gray-500 mt-16">
     <p>© 2025 Ameer Muavia Shah — Frappe | ERPNext | Python</p>
