@@ -178,15 +178,15 @@ const projectData = {
     ]
   },
 
-  'grow-healthy': {
-    title: 'Grow Healthy Platform (ERPNext)',
+  'education': {
+    title: 'Education Management System',
     icon: '🏥',
-    description: 'N/A — part of the research institute’s “Bump Coach” ecosystem; currently in restricted production phase.',
+    description: 'Comprehensive education management solution built on Frappe/ERPNext for a private school, covering admissions, attendance, grading, and fee management.',
     role: 'Lead Frappe/ERPNext Developer',
     githubLink: 'N/A',
     liveDemoLink: 'N/A',
     details: ['N/A'],
-    technologies: ['N/A'],
+    technologies: ['Frappe Framework', 'ERPNext', 'Python', 'JavaScript', 'MySQL'],
     features: ['N/A']
   }
 };
