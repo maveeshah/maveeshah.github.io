@@ -67,72 +67,129 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
   
-  // Project Modal System Data Model
-  const projectData = {
-    'grow-healthy': {
-      title: 'Grow Healthy Platform (ERPNext)',
-      icon: '🏥',
-      description: 'A comprehensive, customized ERPNext-based healthcare system, designed for research institutes, that centralized patient health records and management for multiple facilities.',
-      role: 'Lead Frappe/ERPNext Developer',
-      githubLink: 'https://github.com/maveeshah/grow-healthy',
-      liveDemoLink: '#', // Placeholder if no live demo exists
-      details: [
-        '**Reduced Data Silos by 60%** by centralizing patient data from five previously disparate clinics into one ERPNext instance.',
-        'Developed custom healthcare modules (Patient Admission, Research Protocol, Lab Management) on the Frappe framework using **Jinja** for reports.', // Added Jinja detail
-        'Created advanced, real-time admin dashboards for **analytics and compliance reporting** on research data.',
-        'Implemented Role-Based Access Control (RBAC) to ensure HIPAA/GDPR compliance across different user types (Doctors, Researchers, Admin).'
-      ],
-      technologies: ['ERPNext', 'Frappe Framework', 'Python', 'JavaScript', 'MySQL', 'Jinja', 'REST APIs'], // Added Jinja
-      features: [
-        'Multi-institute support and dynamic facility selection',
-        'Custom workflow for patient consent and protocol tracking',
-        'Automated reporting and executive dashboards',
-        'Secure API integration layer for external lab systems'
-      ]
-    },
-    'real-estate': {
-      title: 'Real Estate Property ERP',
-      icon: '🏢',
-      description: 'A highly customized Frappe application for complete property lifecycle management, enabling faster sales cycles and accurate project accounting for a major real estate firm.',
-      role: 'Full Stack Frappe Developer',
-      githubLink: 'https://github.com/maveeshah/real-estate-erp',
-      liveDemoLink: '#',
-      details: [
-        '**Streamlined Transaction Approvals**, cutting average contract closing time from 7 days to 2 days using custom workflow automation.',
-        'Implemented comprehensive project accounting, enabling **real-time budget tracking** against property development milestones.',
-        'Designed custom DocTypes for property inventory, sales management, and post-sales maintenance tracking.',
-        'Integrated a customer portal for buyers to track payment plans and download documents, improving customer satisfaction.'
-      ],
-      technologies: ['Frappe Framework', 'Python', 'JavaScript', 'PostgreSQL', 'ERPNext', 'Jinja'], // Added Jinja
-      features: [
-        'Property listing and inventory management with map views',
-        'Automated sales/purchase order creation from CRM leads',
-        'Dynamic workflow system for multi-level approvals',
-        'Detailed financial reporting (P&L per project)'
-      ]
-    },
-    'automation': {
-      title: 'ERPNext Automation Suite (Python)',
-      icon: '⚙️',
-      description: 'A powerful Python-based automation toolkit that dramatically reduces manual effort by streamlining repetitive administrative, HR, and data migration tasks within ERPNext.',
-      role: 'Python Automation Engineer',
-      githubLink: 'https://github.com/maveeshah/automation-suite',
-      liveDemoLink: '#',
-      details: [
-        'Developed data migration scripts that **successfully imported 100,000+ records** from legacy systems with a <0.1% error rate.', // Matches experience detail
-        'Automated HR processes (attendance, payroll sync, and report distribution) reducing manual data entry time by **~8 hours per week**.', // Matches experience detail
-        'Built a centralized notification engine using Python and the ERPNext API for scheduled reports and critical alerts.',
-        'Designed scalable scripts leveraging **Celery** for asynchronous task execution, ensuring ERP performance stability.'
-      ],
-      technologies: ['Python', 'ERPNext API', 'Selenium', 'Pandas', 'SQLAlchemy', 'Celery', 'MariaDB/MySQL'], // Added MariaDB/MySQL
-      features: [
-        'Automated nightly data synchronization and backups',
-        'Bulk operations for user management and batch processing',
-        'Custom reporting distribution via email/Slack integration',
-        'Performance monitoring and logging with auto-retry logic'
-      ]
-    }
-  };
+// Project Modal System Data Model (Actual Verified Projects)
+const projectData = {
+  'real-estate': {
+    title: 'Real Estate ERP (Custom Frappe App)',
+    icon: '🏢',
+    description:
+      'End-to-end real estate lifecycle management system built on Frappe/ERPNext for a US client — covering project setup, property sales, invoicing, and after-sales service.',
+    role: 'Lead Full Stack Frappe Developer',
+    githubLink: 'https://github.com/maveeshah/real-estate-erp',
+    liveDemoLink: '#',
+    details: [
+      'Implemented **property and project management workflows**, reducing manual document handling by 70%.',
+      'Integrated **multi-company accounting** and automated cost center allocations for construction projects.',
+      'Developed **buyer portal** for property payments, plan tracking, and document downloads.',
+      'Built **custom reports and dashboards** using Jinja and Frappe Charts for sales, cost, and project tracking.'
+    ],
+    technologies: ['Frappe Framework', 'ERPNext', 'Python', 'JavaScript', 'PostgreSQL', 'Jinja'],
+    features: [
+      'Automated document and payment plan generation',
+      'Workflow-based sales approval process',
+      'Customer self-service portal',
+      'Dynamic financial reporting by project'
+    ]
+  },
+
+  'automation-suite': {
+    title: 'ERPNext Automation Suite',
+    icon: '⚙️',
+    description:
+      'Python-based automation and data-migration toolkit built to reduce repetitive administrative and HR tasks across ERPNext deployments.',
+    role: 'Python Automation Engineer',
+    githubLink: 'https://github.com/maveeshah/automation-suite',
+    liveDemoLink: '#',
+    details: [
+      'Automated **data migrations for 100,000+ records** from legacy ERP with <0.1% error rate.',
+      'Developed **scripts for HR, payroll, and attendance** automation using ERPNext API.',
+      'Built **centralized notification engine** for scheduled reports via email/Slack.',
+      'Used **Celery workers** for parallel task execution and system health monitoring.'
+    ],
+    technologies: ['Python', 'ERPNext API', 'Celery', 'SQLAlchemy', 'Pandas', 'MariaDB'],
+    features: [
+      'Bulk operations for record sync and cleanup',
+      'Nightly data sync and backup automation',
+      'Dynamic report generation and distribution',
+      'Error handling and retry logic for reliability'
+    ]
+  },
+
+  'multi-company': {
+    title: 'Multi-Company ERPNext Deployment',
+    icon: '🏭',
+    description:
+      'Configured and deployed a multi-company ERPNext environment for a group of trading and manufacturing firms to unify operations under one system.',
+    role: 'ERPNext Implementation Lead',
+    githubLink: 'https://github.com/maveeshah/multi-company-erp',
+    liveDemoLink: '#',
+    details: [
+      'Implemented **multi-company accounting** with consolidated financial reports and inter-company transactions.',
+      'Configured **branch-level permissions and role hierarchies** for finance and operations users.',
+      'Optimized performance by tuning background jobs and database indexing for high transaction volume.'
+    ],
+    technologies: ['ERPNext', 'Frappe Framework', 'Python', 'MySQL', 'JavaScript'],
+    features: [
+      'Cross-company stock and accounting integration',
+      'Unified reporting dashboards for executives',
+      'Automated journal entries between companies'
+    ]
+  },
+
+  'custom-dashboards': {
+    title: 'Advanced Dashboards & Reporting System',
+    icon: '📊',
+    description:
+      'Developed a series of ERPNext-based dashboards and analytics modules with real-time KPIs for admin, finance, and operational insights.',
+    role: 'ERPNext Developer',
+    githubLink: 'https://github.com/maveeshah/custom-dashboards',
+    liveDemoLink: '#',
+    details: [
+      'Built **department-wise dashboards** (Finance, Sales, HR) using Frappe Charts and Jinja templating.',
+      'Integrated **RBAC controls** ensuring data isolation per user and department.',
+      'Implemented drill-down analytics for P&L, invoices, and daily operations summaries.'
+    ],
+    technologies: ['Frappe Framework', 'ERPNext', 'Jinja', 'JavaScript', 'Chart.js', 'Python'],
+    features: [
+      'Real-time data visualization from ERPNext DocTypes',
+      'Custom report filters and export options',
+      'Secure access based on roles and permissions'
+    ]
+  },
+
+  'hr-automation': {
+    title: 'ERPNext HR & Payroll Automation',
+    icon: '👔',
+    description:
+      'Enhanced ERPNext’s HR module with automated attendance sync, payroll generation, and compliance workflows for local regulations.',
+    role: 'ERPNext Developer',
+    githubLink: 'https://github.com/maveeshah/hr-automation',
+    liveDemoLink: '#',
+    details: [
+      'Automated **attendance import and payroll calculations**, cutting HR processing time by 60%.',
+      'Integrated **biometric attendance system** via REST API with real-time data push to ERPNext.',
+      'Built **custom salary structures** and government compliance reports (EOBI/Tax).'
+    ],
+    technologies: ['ERPNext', 'Python', 'Jinja', 'MySQL', 'REST APIs'],
+    features: [
+      'API-based biometric attendance sync',
+      'Dynamic payroll rules per department',
+      'Self-service employee portal with payslip access'
+    ]
+  },
+
+  'grow-healthy': {
+    title: 'Grow Healthy Platform (ERPNext)',
+    icon: '🏥',
+    description: 'N/A — part of the research institute’s “Bump Coach” ecosystem; currently in restricted production phase.',
+    role: 'Lead Frappe/ERPNext Developer',
+    githubLink: 'N/A',
+    liveDemoLink: 'N/A',
+    details: ['N/A'],
+    technologies: ['N/A'],
+    features: ['N/A']
+  }
+};
 
   // Dynamic Project Card Generation
   const projectsContainer = document.getElementById('projects-container');
