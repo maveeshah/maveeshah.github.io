@@ -7,7 +7,26 @@
   <meta name="description" content="Ameer Muavia Shah - Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation. 5+ years of experience building enterprise ERP solutions." />
   <meta name="keywords" content="Software Engineer, ERPNext, Frappe, Python, ERP, Automation, Integration, MariaDB, Jinja" />
   <meta name="author" content="Ameer Muavia Shah" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maveeshah.github.io/" />
+  <meta property="og:title" content="Ameer Muavia Shah | Senior Software Engineer | ERPNext & Frappe Specialist" />
+  <meta property="og:description" content="Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation. 5+ years of experience building enterprise ERP solutions." />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://maveeshah.github.io/" />
+  <meta property="twitter:title" content="Ameer Muavia Shah | Senior Software Engineer" />
+  <meta property="twitter:description" content="Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation." />
+  
   <title>Ameer Muavia Shah | Senior Software Engineer | ERPNext & Frappe Specialist</title>
+  
+  <!-- Modern Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -37,6 +56,14 @@
     }
   </script>
   <style>
+    :root {
+      --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    * {
+      font-family: var(--font-inter);
+    }
+    
     .animate-fade-in {
       animation: fadeIn 0.6s ease-in-out forwards;
     }
@@ -45,7 +72,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .gradient-bg {
-      background: linear-gradient(-45deg, #064e3b, #065f46, #047857, #059669);
+      background: linear-gradient(-45deg, #064e3b, #065f46, #047857, #059669, #10b981);
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
     }
@@ -58,34 +85,468 @@
     #mobile-menu-button.active span:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px);
     }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Enhanced focus states for accessibility */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #10b981;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    /* Enhanced Liquid Glass Design */
+    .liquid-glass {
+      background: rgba(17, 24, 39, 0.25);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    /* Liquid blob animations */
+    .liquid-blob {
+      position: absolute;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: morph 20s ease-in-out infinite;
+      z-index: 0;
+    }
+    
+    .liquid-blob-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      top: -200px;
+      left: -200px;
+      animation: morph 20s ease-in-out infinite, float1 15s ease-in-out infinite;
+    }
+    
+    .liquid-blob-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #34d399, #10b981);
+      bottom: -150px;
+      right: -150px;
+      animation: morph 25s ease-in-out infinite reverse, float2 18s ease-in-out infinite;
+    }
+    
+    .liquid-blob-3 {
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg, #6ee7b7, #34d399);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: morph 30s ease-in-out infinite, float3 20s ease-in-out infinite;
+    }
+    
+    @keyframes morph {
+      0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        transform: rotate(0deg);
+      }
+      25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+        transform: rotate(90deg);
+      }
+      50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+        transform: rotate(180deg);
+      }
+      75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+        transform: rotate(270deg);
+      }
+    }
+    
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+    
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(-40px, 40px) rotate(-120deg); }
+      66% { transform: translate(30px, -20px) rotate(-240deg); }
+    }
+    
+    @keyframes float3 {
+      0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+      50% { transform: translate(-45%, -55%) rotate(180deg); }
+    }
+    
+    /* Glassmorphism effect (enhanced) */
+    .glass {
+      background: rgba(17, 24, 39, 0.4);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    
+    /* Enhanced glass cards */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.3);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 
+        0 8px 32px 0 rgba(16, 185, 129, 0.15),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-card:hover {
+      background: rgba(17, 24, 39, 0.4);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 
+        0 12px 40px 0 rgba(16, 185, 129, 0.25),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    /* Glass header */
+    .glass-header {
+      background: rgba(17, 24, 39, 0.5);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Particle animation background */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(16, 185, 129, 0.3);
+      border-radius: 50%;
+      animation: float 20s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+    
+    /* Theme toggle button */
+    #theme-toggle {
+      transition: all 0.3s ease;
+    }
+    
+    #theme-toggle:hover {
+      transform: rotate(180deg);
+    }
+    
+    /* Light Theme Styles - Modern & Vibrant */
+    [data-theme="light"] {
+      --bg-primary: #fafbfc;
+      --bg-secondary: #f5f7fa;
+      --bg-tertiary: #eef2f6;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-tertiary: #64748b;
+      --border-color: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --accent-color: #059669;
+      --accent-hover: #047857;
+      --accent-light: #d1fae5;
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+    }
+    
+    [data-theme="light"] body {
+      background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+      color: var(--text-primary);
+    }
+    
+    [data-theme="light"] .bg-gray-950 {
+      background-color: var(--bg-primary) !important;
+    }
+    
+    [data-theme="light"] .text-gray-100 {
+      color: var(--text-primary) !important;
+    }
+    
+    [data-theme="light"] .text-gray-300 {
+      color: var(--text-secondary) !important;
+    }
+    
+    [data-theme="light"] .text-gray-400 {
+      color: var(--text-tertiary) !important;
+    }
+    
+    [data-theme="light"] .text-gray-500 {
+      color: var(--text-tertiary) !important;
+    }
+    
+    [data-theme="light"] .border-gray-800 {
+      border-color: var(--border-color) !important;
+    }
+    
+    [data-theme="light"] .bg-gray-900\/90,
+    [data-theme="light"] .bg-gray-800\/90,
+    [data-theme="light"] .bg-gray-900,
+    [data-theme="light"] .bg-gray-800 {
+      background-color: var(--bg-card) !important;
+      box-shadow: var(--shadow-md);
+    }
+    
+    [data-theme="light"] header {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      border-color: var(--border-color) !important;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    [data-theme="light"] .bg-gray-950\/95 {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+    }
+    
+    [data-theme="light"] .bg-gray-950\/98 {
+      background-color: rgba(255, 255, 255, 0.99) !important;
+    }
+    
+    [data-theme="light"] .bg-gray-800\/50 {
+      background-color: var(--bg-tertiary) !important;
+    }
+    
+    [data-theme="light"] .hover\:bg-gray-800\/50:hover {
+      background-color: var(--bg-tertiary) !important;
+    }
+    
+    [data-theme="light"] .text-emerald-400 {
+      color: var(--accent-color) !important;
+    }
+    
+    [data-theme="light"] .text-emerald-300 {
+      color: var(--accent-hover) !important;
+    }
+    
+    [data-theme="light"] .bg-emerald-500 {
+      background-color: var(--accent-color) !important;
+    }
+    
+    [data-theme="light"] .bg-emerald-400 {
+      background-color: var(--accent-hover) !important;
+    }
+    
+    [data-theme="light"] .hover\:bg-emerald-400:hover {
+      background-color: var(--accent-hover) !important;
+    }
+    
+    [data-theme="light"] .border-emerald-400 {
+      border-color: var(--accent-color) !important;
+    }
+    
+    [data-theme="light"] .border-emerald-500\/50 {
+      border-color: var(--accent-color) !important;
+      opacity: 0.6;
+    }
+    
+    [data-theme="light"] .border-emerald-500\/20 {
+      border-color: var(--accent-light) !important;
+    }
+    
+    [data-theme="light"] .bg-emerald-500\/10 {
+      background-color: var(--accent-light) !important;
+    }
+    
+    [data-theme="light"] .hover\:border-emerald-500\/50:hover {
+      border-color: var(--accent-color) !important;
+    }
+    
+    [data-theme="light"] .shadow-emerald-500\/30 {
+      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.2), 0 4px 6px -2px rgba(5, 150, 105, 0.1) !important;
+    }
+    
+    [data-theme="light"] .shadow-emerald-500\/50 {
+      box-shadow: 0 20px 25px -5px rgba(5, 150, 105, 0.3), 0 10px 10px -5px rgba(5, 150, 105, 0.15) !important;
+    }
+    
+    [data-theme="light"] .shadow-emerald-400\/30 {
+      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.2), 0 4px 6px -2px rgba(5, 150, 105, 0.1) !important;
+    }
+    
+    [data-theme="light"] .shadow-emerald-500\/10 {
+      box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.1), 0 2px 4px -1px rgba(5, 150, 105, 0.06) !important;
+    }
+    
+    [data-theme="light"] .particle {
+      background: rgba(5, 150, 105, 0.15);
+    }
+    
+    [data-theme="light"] .gradient-bg {
+      background: linear-gradient(-45deg, #d1fae5, #a7f3d0, #6ee7b7, #34d399, #10b981) !important;
+      opacity: 0.3;
+    }
+    
+    [data-theme="light"] .bg-gradient-to-br {
+      background: linear-gradient(to bottom right, var(--bg-card), var(--bg-secondary)) !important;
+    }
+    
+    [data-theme="light"] .from-gray-900\/90,
+    [data-theme="light"] .via-gray-900\/80,
+    [data-theme="light"] .to-gray-800\/90 {
+      background: linear-gradient(to bottom right, var(--bg-card), var(--bg-secondary)) !important;
+    }
+    
+    [data-theme="light"] .bg-black\/80 {
+      background-color: rgba(15, 23, 42, 0.85) !important;
+    }
+    
+    [data-theme="light"] .bg-gray-900\/95 {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+    }
+    
+    [data-theme="light"] .bg-gray-900\/50,
+    [data-theme="light"] .bg-gray-900\/40 {
+      background-color: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    [data-theme="light"] .hover\:border-emerald-500\/30:hover {
+      border-color: var(--accent-color) !important;
+      opacity: 0.8;
+    }
+    
+    [data-theme="light"] .shadow-xl {
+      box-shadow: var(--shadow-lg) !important;
+    }
+    
+    [data-theme="light"] .shadow-2xl {
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
+    }
+    
+    [data-theme="light"] .shadow-lg {
+      box-shadow: var(--shadow-md) !important;
+    }
+    
+    [data-theme="light"] .shadow-black\/20 {
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1) !important;
+    }
+    
+    /* Light theme liquid glass adjustments */
+    [data-theme="light"] .liquid-glass {
+      background: rgba(255, 255, 255, 0.4);
+      border-color: rgba(5, 150, 105, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(5, 150, 105, 0.1);
+    }
+    
+    [data-theme="light"] .glass-card {
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(5, 150, 105, 0.15);
+      box-shadow: 
+        0 8px 32px 0 rgba(5, 150, 105, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+    }
+    
+    [data-theme="light"] .glass-card:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(5, 150, 105, 0.3);
+    }
+    
+    [data-theme="light"] .glass-header {
+      background: rgba(255, 255, 255, 0.7);
+      border-bottom-color: rgba(5, 150, 105, 0.1);
+    }
+    
+    [data-theme="light"] .liquid-blob {
+      opacity: 0.15;
+    }
   </style>
   <script defer src="script.js"></script>
 </head>
 
 <body class="bg-gray-950 text-gray-100 font-sans antialiased">
-  <header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
+  <header class="sticky top-0 z-50 glass-header">
     <div class="flex justify-between items-center px-4 sm:px-8 py-5">
-      <a href="index.html" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+      <a href="index.html" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-all duration-300 hover:scale-105" aria-label="Home">
         Ameer Muavia Shah
       </a>
-      <nav class="hidden md:flex space-x-6 text-gray-300">
-        <a href="index.html" class="hover:text-emerald-400 transition-colors active">Home</a>
-        <a href="projects.html" class="hover:text-emerald-400 transition-colors">Projects</a>
-        <a href="about.html" class="hover:text-emerald-400 transition-colors">About</a>
-        <a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact</a>
+      <nav class="hidden md:flex space-x-6 text-gray-300" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors active relative group">
+          Home
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="projects.html" class="hover:text-emerald-400 transition-colors relative group">
+          Projects
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="about.html" class="hover:text-emerald-400 transition-colors relative group">
+          About
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="contact.html" class="hover:text-emerald-400 transition-colors relative group">
+          Contact
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
       </nav>
-      <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5 w-6 h-6 focus:outline-none">
-        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
-        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
-        <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
-      </button>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" aria-label="Toggle theme" class="hidden md:flex w-10 h-10 items-center justify-center rounded-lg bg-gray-800/50 hover:bg-gray-800 text-gray-300 hover:text-emerald-400 transition-all duration-300">
+          <span id="theme-icon" class="text-xl">🌙</span>
+        </button>
+        <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5 w-6 h-6 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+          <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+          <span class="block w-full h-0.5 bg-emerald-400 transition-all"></span>
+        </button>
+      </div>
     </div>
-    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/98 backdrop-blur-sm">
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/98 backdrop-blur-md" role="navigation" aria-label="Mobile navigation">
       <div class="flex flex-col px-4 py-4 space-y-3">
-        <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors active">Home</a>
-        <a href="projects.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Projects</a>
-        <a href="about.html" class="text-gray-300 hover:text-emerald-400 transition-colors">About</a>
-        <a href="contact.html" class="text-gray-300 hover:text-emerald-400 transition-colors">Contact</a>
+        <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors active py-2 px-3 rounded-lg hover:bg-gray-800/50">Home</a>
+        <a href="projects.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">Projects</a>
+        <a href="about.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">About</a>
+        <a href="contact.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">Contact</a>
+        <button id="mobile-theme-toggle" aria-label="Toggle theme" class="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50 text-left">
+          <span id="mobile-theme-icon" class="text-xl">🌙</span>
+          <span>Toggle Theme</span>
+        </button>
       </div>
     </nav>
   </header>
@@ -93,12 +554,16 @@
   <main class="min-h-[85vh]">
     <section class="flex flex-col items-center justify-center text-center min-h-[85vh] px-4 relative overflow-hidden">
       <div class="absolute inset-0 gradient-bg opacity-10"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.15),transparent_60%)]"></div>
+      <div class="liquid-blob liquid-blob-1"></div>
+      <div class="liquid-blob liquid-blob-2"></div>
+      <div class="liquid-blob liquid-blob-3"></div>
+      <div id="particles" class="particles"></div>
       <div class="relative z-10 max-w-4xl fade-in-on-scroll">
         <div class="mb-8 animate-slide-up">
-          <div class="inline-block px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
-            <span class="text-emerald-400 text-sm font-medium">Senior Software Engineer & ERPNext Specialist (5+ Yrs)</span>
-          </div>
+        <div class="inline-block px-4 py-2 liquid-glass rounded-full mb-6">
+          <span class="text-emerald-400 text-sm font-medium">Senior Software Engineer & ERPNext Specialist (5+ Yrs)</span>
+        </div>
         </div>
         <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
           Hi, I'm <span class="text-emerald-400 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 bg-clip-text text-transparent">Ameer Muavia Shah</span>
@@ -110,10 +575,13 @@
           Frappe & ERPNext Specialist | Python | Automation & Integration Expert
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style="animation-delay: 0.6s">
-          <a href="projects.html" class="px-8 py-3.5 bg-emerald-500 text-black font-semibold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50">
+          <a href="projects.html" class="px-8 py-3.5 bg-emerald-500 text-black font-semibold rounded-full hover:bg-emerald-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:shadow-xl" aria-label="View my projects">
             View My Work
           </a>
-          <a href="https://linkedin.com/in/maveeshah" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 border-2 border-emerald-400 text-emerald-400 font-semibold rounded-full hover:bg-emerald-400 hover:text-black transition-all hover:scale-105">
+          <a href="contact.html#resume" class="px-8 py-3.5 border-2 border-emerald-400 text-emerald-400 font-semibold rounded-full hover:bg-emerald-400 hover:text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-400/30" aria-label="Download resume">
+            Download Resume
+          </a>
+          <a href="https://linkedin.com/in/maveeshah" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 border-2 border-emerald-400 text-emerald-400 font-semibold rounded-full hover:bg-emerald-400 hover:text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-400/30" aria-label="Connect on LinkedIn">
             Connect on LinkedIn
           </a>
         </div>
@@ -122,31 +590,51 @@
 
     <section class="max-w-7xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll">
       <div class="text-center mb-12">
-        <div class="inline-block px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
+        <div class="inline-block px-4 py-2 liquid-glass rounded-full mb-6">
           <span class="text-emerald-400 text-sm font-medium">Core Expertise</span>
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold text-emerald-400">My Technology Stack</h2>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
-          <span class="text-4xl mb-3 block">💻</span>
-          <h3 class="text-lg font-semibold text-gray-200">ERPNext / Frappe</h3>
-          <p class="text-sm text-gray-400">Custom App & Module Development</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">💻</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">ERPNext / Frappe</h3>
+          <p class="text-sm text-gray-400">Custom Apps, DocTypes, Workflows & Dashboards</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
-          <span class="text-4xl mb-3 block">🐍</span>
-          <h3 class="text-lg font-semibold text-gray-200">Python</h3>
-          <p class="text-sm text-gray-400">Automation, Scripting & Back-end APIs</p>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">🐍</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">Python</h3>
+          <p class="text-sm text-gray-400">Flask, FastAPI, Celery, Pandas & Automation</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
-          <span class="text-4xl mb-3 block">🔗</span>
-          <h3 class="text-lg font-semibold text-gray-200">API Integration</h3>
-          <p class="text-sm text-gray-400">REST, OAuth2 & Third-Party System Sync</p>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">🔗</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">API Integration</h3>
+          <p class="text-sm text-gray-400">REST APIs, OAuth2, Webhooks & Third-Party Sync</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
-          <span class="text-4xl mb-3 block">📊</span>
-          <h3 class="text-lg font-semibold text-gray-200">SQL / MariaDB</h3>
-          <p class="text-sm text-gray-400">Schema Design & Optimization</p>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">📊</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">SQL / MariaDB</h3>
+          <p class="text-sm text-gray-400">Schema Design, Query Optimization & Data Migration</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">📝</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">Jinja Templates</h3>
+          <p class="text-sm text-gray-400">Custom Reports, Print Formats & Dynamic Content</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">⚙️</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">Automation</h3>
+          <p class="text-sm text-gray-400">Celery Workers, Scheduled Jobs & Data Processing</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">🎨</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">JavaScript</h3>
+          <p class="text-sm text-gray-400">Vanilla JS, jQuery, Frappe Client Scripts & UI</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl group relative z-10">
+          <span class="text-4xl mb-3 block group-hover:scale-110 transition-transform duration-300">🔄</span>
+          <h3 class="text-lg font-semibold text-gray-200 group-hover:text-emerald-400 transition-colors">Workflow Design</h3>
+          <p class="text-sm text-gray-400">Approval Processes, State Management & Business Logic</p>
         </div>
       </div>
     </section>

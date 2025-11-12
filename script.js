@@ -1,15 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("🚀 Ameer Muavia Shah's Portfolio Loaded");
   
-  // Mobile menu toggle
+  // Mobile menu elements (declared early for use in theme toggle)
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.querySelectorAll('#mobile-menu a, nav a');
   
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+  const html = document.documentElement;
+  
+  // Get saved theme or default to dark
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', currentTheme);
+  updateThemeIcon(currentTheme);
+  
+  function updateThemeIcon(theme) {
+    const icon = theme === 'dark' ? '🌙' : '☀️';
+    if (themeIcon) themeIcon.textContent = icon;
+    if (mobileThemeIcon) mobileThemeIcon.textContent = icon;
+  }
+  
+  function toggleTheme() {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', () => {
+      toggleTheme();
+      // Close mobile menu after theme toggle
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        if (mobileMenuButton) mobileMenuButton.classList.remove('active');
+      }
+    });
+  }
+  
+  // Particle Animation (only on index page)
+  const particlesContainer = document.getElementById('particles');
+  if (particlesContainer) {
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 20 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+      particlesContainer.appendChild(particle);
+      
+      // Remove particle after animation
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 25000);
+    }
+    
+    // Create initial particles
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => createParticle(), i * 1000);
+    }
+    
+    // Continue creating particles
+    setInterval(createParticle, 2000);
+  }
+  
+  // Mobile menu toggle
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
       mobileMenu.classList.toggle('hidden');
       mobileMenuButton.classList.toggle('active');
+      mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
     });
     
     // Close mobile menu when clicking a link
@@ -207,7 +279,7 @@ const projectData = {
         `).join('');
 
         const cardHTML = `
-          <div class="bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-gray-800/90 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-2 fade-in-on-scroll group" data-project="${projectId}" style="animation-delay: ${delay}s">
+          <div class="glass-card p-6 rounded-2xl fade-in-on-scroll group relative z-10" data-project="${projectId}" style="animation-delay: ${delay}s">
             <div class="mb-4">
               <div class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <span class="text-3xl">${project.icon}</span>
