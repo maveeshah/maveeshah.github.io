@@ -47,33 +47,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   
-  // Particle Animation (only on index page)
-  const particlesContainer = document.getElementById('particles');
-  if (particlesContainer) {
-    function createParticle() {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-      particlesContainer.appendChild(particle);
+  // Interactive 3D card tilt effect
+  const modernCards = document.querySelectorAll('.modern-card');
+  modernCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
       
-      // Remove particle after animation
-      setTimeout(() => {
-        if (particle.parentNode) {
-          particle.parentNode.removeChild(particle);
-        }
-      }, 25000);
-    }
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
     
-    // Create initial particles
-    for (let i = 0; i < 20; i++) {
-      setTimeout(() => createParticle(), i * 1000);
-    }
-    
-    // Continue creating particles
-    setInterval(createParticle, 2000);
-  }
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
   
   // Mobile menu toggle
   if (mobileMenuButton && mobileMenu) {
@@ -396,22 +390,22 @@ const projectData = {
         `).join('');
 
         const cardHTML = `
-          <div class="glass-card p-6 rounded-2xl fade-in-on-scroll group relative z-10" data-project="${projectId}" style="animation-delay: ${delay}s">
-            <div class="mb-4">
-              <div class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <span class="text-3xl">${project.icon}</span>
+          <div class="modern-card p-8 rounded-3xl fade-in-on-scroll group relative z-10 cursor-pointer" data-project="${projectId}" style="animation-delay: ${delay}s">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                <span class="text-4xl">${project.icon}</span>
               </div>
-              <h3 class="text-xl font-semibold mb-3 text-emerald-400 group-hover:text-emerald-300 transition-colors">${project.title}</h3>
+              <h3 class="text-xl font-bold mb-4 text-emerald-400 group-hover:text-emerald-300 transition-colors">${project.title}</h3>
             </div>
-            <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
               ${project.description}
             </p>
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div class="flex flex-wrap gap-2 mb-6">
               ${techTags}
             </div>
-            <button class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition-colors inline-flex items-center gap-2 group-hover:gap-3 cursor-pointer">
-              View Details <span class="text-lg">→</span>
-            </button>
+            <div class="text-emerald-400 text-sm font-bold hover:text-emerald-300 transition-colors inline-flex items-center gap-2 group-hover:gap-3">
+              View Details <span class="text-lg transform group-hover:translate-x-1 transition-transform">→</span>
+            </div>
           </div>
         `;
 
