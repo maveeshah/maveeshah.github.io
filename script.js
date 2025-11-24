@@ -89,42 +89,103 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   
-  // Highlight active navigation link
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  navLinks.forEach(link => {
-    const linkPath = link.getAttribute('href');
-    if (linkPath === currentPage || (currentPage === '' && linkPath === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-  
-  // Smooth scroll for anchor links
+  // Smooth scroll for anchor links and close mobile menu
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-      if (href !== '#' && href.startsWith('#')) {
+      // Only handle anchor links, not empty hash
+      if (href && href !== '#' && href.startsWith('#') && href.length > 1) {
         e.preventDefault();
-        const target = document.querySelector(href);
+        e.stopPropagation();
+        
+        const targetId = href.substring(1); // Remove the #
+        const target = document.getElementById(targetId);
+        
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          // Close mobile menu if open
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            if (mobileMenuButton) {
+              mobileMenuButton.classList.remove('active');
+              mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+          }
+          
+          // Smooth scroll to target with proper offset
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
           });
+          
+          // Update URL without triggering scroll
+          if (history.pushState) {
+            history.pushState(null, null, href);
+          }
         }
       }
     });
   });
   
-  // Add fade-in animation on scroll
+  // Highlight active navigation link based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinksAll = document.querySelectorAll('nav a[href^="#"]');
+  
+  function highlightActiveSection() {
+    const scrollPosition = window.pageYOffset + 150;
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navLinksAll.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (linkHref && linkHref.startsWith('#')) {
+            link.classList.remove('active');
+            if (linkHref === `#${sectionId}`) {
+              link.classList.add('active');
+              // Add visual indicator for active state
+              const underline = link.querySelector('span');
+              if (underline) {
+                underline.style.width = '100%';
+              }
+            } else {
+              const underline = link.querySelector('span');
+              if (underline) {
+                underline.style.width = '';
+              }
+            }
+          }
+        });
+      }
+    });
+  }
+  
+  // Highlight on scroll
+  window.addEventListener('scroll', highlightActiveSection);
+  // Highlight on page load
+  highlightActiveSection();
+  
+  // Add fade-in animation on scroll (only once per element, faster)
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -100px 0px'
   };
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fade-in');
+        // Only add animation if not already animated
+        if (!entry.target.classList.contains('animate-fade-in')) {
+          entry.target.classList.add('animate-fade-in');
+          // Remove observer after animation to prevent re-triggering
+          observer.unobserve(entry.target);
+        }
       }
     });
   }, observerOptions);
@@ -534,6 +595,55 @@ const projectData = {
       if (e.key === 'Escape' && projectModal && !projectModal.classList.contains('hidden')) {
         closeModal();
       }
+    });
+  }
+  
+  // Contact form handling
+  const contactForm = document.getElementById('contact-form');
+  const formMessage = document.getElementById('form-message');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message')
+      };
+      
+      // Show loading state
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+      
+      // For now, we'll use mailto as a fallback since we don't have a backend
+      // In production, you'd want to use a service like Formspree, EmailJS, or your own backend
+      const mailtoLink = `mailto:mavee.shah@hotmail.com?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message + '\n\nFrom: ' + data.email)}`;
+      
+      // Show success message
+      if (formMessage) {
+        formMessage.classList.remove('hidden');
+        formMessage.className = 'mt-4 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400';
+        formMessage.textContent = 'Opening your email client... If it doesn\'t open, please email mavee.shah@hotmail.com directly.';
+      }
+      
+      // Open mailto link
+      window.location.href = mailtoLink;
+      
+      // Reset form after a delay
+      setTimeout(() => {
+        contactForm.reset();
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        if (formMessage) {
+          setTimeout(() => {
+            formMessage.classList.add('hidden');
+          }, 5000);
+        }
+      }, 2000);
     });
   }
 });

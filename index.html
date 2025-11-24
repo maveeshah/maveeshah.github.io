@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
-  <meta name="description" content="Ameer Muavia Shah - Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation. 5+ years of experience building enterprise ERP solutions." />
-  <meta name="keywords" content="Software Engineer, ERPNext, Frappe, Python, ERP, Automation, Integration, MariaDB, Jinja" />
+  <meta name="description" content="Ameer Muavia Shah - I turn repetitive processes into automated systems that run themselves. ERPNext & Frappe specialist designing workflows that save time, reduce errors, and make businesses efficient." />
+  <meta name="keywords" content="ERPNext, Frappe, Automation, Business Process Automation, ERP, Workflow Design, Python, Integration" />
   <meta name="author" content="Ameer Muavia Shah" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://maveeshah.github.io/" />
-  <meta property="og:title" content="Ameer Muavia Shah | Senior Software Engineer | ERPNext & Frappe Specialist" />
-  <meta property="og:description" content="Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation. 5+ years of experience building enterprise ERP solutions." />
+  <meta property="og:title" content="Ameer Muavia Shah | ERPNext & Frappe Automation Specialist" />
+  <meta property="og:description" content="I turn repetitive processes into automated systems that run themselves. ERPNext & Frappe specialist designing workflows that save time, reduce errors, and make businesses efficient." />
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://maveeshah.github.io/" />
-  <meta property="twitter:title" content="Ameer Muavia Shah | Senior Software Engineer" />
-  <meta property="twitter:description" content="Senior Software Engineer specializing in ERPNext, Frappe Framework, and Python automation." />
+  <meta property="twitter:title" content="Ameer Muavia Shah | ERPNext & Frappe Automation" />
+  <meta property="twitter:description" content="I turn repetitive processes into automated systems that run themselves." />
   
-  <title>Ameer Muavia Shah | Senior Software Engineer | ERPNext & Frappe Specialist</title>
+  <title>Ameer Muavia Shah | ERPNext & Frappe Automation Specialist</title>
   
   <!-- Modern Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,18 +33,18 @@
       theme: {
         extend: {
           animation: {
-            'fade-in': 'fadeIn 0.6s ease-in-out',
-            'slide-up': 'slideUp 0.6s ease-out',
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'slide-up': 'slideUp 0.3s ease-out',
             'gradient': 'gradient 8s ease infinite',
           },
           keyframes: {
             fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(30px) scale(0.95)' },
-              '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
             },
             slideUp: {
-              '0%': { opacity: '0', transform: 'translateY(40px) scale(0.9)' },
-              '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
             gradient: {
               '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -76,11 +76,45 @@
     }
     
     .animate-fade-in {
-      animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation: fadeIn 0.4s ease-out forwards;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Contact section - simple opacity animation */
+    #contact {
+      transform: none !important;
+      will-change: auto;
+    }
+    
+    #contact.fade-in-on-scroll {
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
+    
+    #contact.fade-in-on-scroll.animate-fade-in {
+      opacity: 1;
+      transform: none !important;
+      animation: none !important;
+    }
+    
+    /* Ensure form elements are always clickable and stable */
+    #contact form,
+    #contact button,
+    #contact input,
+    #contact textarea,
+    #contact a {
+      pointer-events: auto !important;
+      position: relative;
+      z-index: 10;
+      transform: none !important;
+    }
+    
+    /* Prevent any transform animations on contact section children */
+    #contact * {
+      transform: none !important;
     }
     
     .gradient-bg {
@@ -122,7 +156,7 @@
       border: 1px solid rgba(16, 185, 129, 0.2);
       position: relative;
       overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: all 0.2s ease-out;
       transform-style: preserve-3d;
     }
     
@@ -135,7 +169,7 @@
       height: 200%;
       background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.2s ease-out;
     }
     
     .modern-card:hover::before {
@@ -143,11 +177,18 @@
     }
     
     .modern-card:hover {
-      transform: translateY(-8px) rotateX(5deg) rotateY(-2deg);
-      border-color: rgba(16, 185, 129, 0.5);
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.4);
       box-shadow: 
-        0 20px 60px rgba(16, 185, 129, 0.3),
+        0 10px 30px rgba(16, 185, 129, 0.2),
         0 0 0 1px rgba(16, 185, 129, 0.1) inset;
+    }
+    
+    /* Service cards - no 3D transforms, simpler hover */
+    .service-card.modern-card:hover {
+      transform: none;
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
     }
     
     /* Animated gradient mesh background */
@@ -528,6 +569,76 @@
     [data-theme="light"] .liquid-blob {
       opacity: 0.15;
     }
+    
+    /* Process flow animation background */
+    .process-flow-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      z-index: 0;
+      background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(16, 185, 129, 0.1) 10px, rgba(16, 185, 129, 0.1) 20px),
+        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(5, 150, 105, 0.1) 10px, rgba(5, 150, 105, 0.1) 20px);
+      animation: flowMove 30s linear infinite;
+    }
+    
+    @keyframes flowMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    
+    /* Opinion statement styling */
+    .opinion-statement {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .opinion-statement::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #10b981, #34d399);
+      border-radius: 2px;
+    }
+    
+    /* Service card - simplified, no animations */
+    .service-card {
+      position: relative;
+    }
+    
+    /* Remove arrow animation - too distracting */
+    .service-card::after {
+      display: none;
+    }
+    
+    /* Simplified hover - just subtle border change */
+    .service-card:hover {
+      border-color: rgba(16, 185, 129, 0.4) !important;
+    }
+    
+    /* Active navigation link styling */
+    nav a.active {
+      color: #10b981;
+    }
+    
+    nav a.active span {
+      width: 100% !important;
+    }
+    
+    /* Prevent button movement on hover */
+    button, a[role="button"] {
+      transform: none !important;
+    }
+    
+    button:hover, a[role="button"]:hover {
+      transform: none !important;
+    }
   </style>
   <script defer src="script.js"></script>
 </head>
@@ -535,29 +646,29 @@
 <body class="bg-gray-950 text-gray-100 font-sans antialiased">
   <header class="sticky top-0 z-50 glass-header">
     <div class="flex justify-between items-center px-4 sm:px-8 py-5">
-      <a href="index.html" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-all duration-300 hover:scale-105" aria-label="Home">
+      <a href="#hero" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors duration-200" aria-label="Home">
         Ameer Muavia Shah
       </a>
       <nav class="hidden md:flex space-x-6 text-gray-300" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="hover:text-emerald-400 transition-colors active relative group">
-          Home
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+        <a href="#outcomes" class="hover:text-emerald-400 transition-colors relative group">
+          Results
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-200"></span>
+        </a>
+        <a href="#services" class="hover:text-emerald-400 transition-colors relative group">
+          Services
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-200"></span>
         </a>
         <a href="projects.html" class="hover:text-emerald-400 transition-colors relative group">
           Projects
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-200"></span>
         </a>
-        <a href="about.html" class="hover:text-emerald-400 transition-colors relative group">
-          About
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="contact.html" class="hover:text-emerald-400 transition-colors relative group">
+        <a href="#contact" class="hover:text-emerald-400 transition-colors relative group">
           Contact
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-200"></span>
         </a>
       </nav>
       <div class="flex items-center gap-4">
-        <button id="theme-toggle" aria-label="Toggle theme" class="hidden md:flex w-10 h-10 items-center justify-center rounded-lg bg-gray-800/50 hover:bg-gray-800 text-gray-300 hover:text-emerald-400 transition-all duration-300">
+        <button id="theme-toggle" aria-label="Toggle theme" class="hidden md:flex w-10 h-10 items-center justify-center rounded-lg bg-gray-800/50 hover:bg-gray-800 text-gray-300 hover:text-emerald-400 transition-colors duration-200">
           <span id="theme-icon" class="text-xl">🌙</span>
         </button>
         <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5 w-6 h-6 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -569,10 +680,10 @@
     </div>
     <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-950/98 backdrop-blur-md" role="navigation" aria-label="Mobile navigation">
       <div class="flex flex-col px-4 py-4 space-y-3">
-        <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors active py-2 px-3 rounded-lg hover:bg-gray-800/50">Home</a>
+        <a href="#outcomes" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50 nav-link">Results</a>
+        <a href="#services" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50 nav-link">Services</a>
         <a href="projects.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">Projects</a>
-        <a href="about.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">About</a>
-        <a href="contact.html" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50">Contact</a>
+        <a href="#contact" class="text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50 nav-link">Contact</a>
         <button id="mobile-theme-toggle" aria-label="Toggle theme" class="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50 text-left">
           <span id="mobile-theme-icon" class="text-xl">🌙</span>
           <span>Toggle Theme</span>
@@ -582,104 +693,211 @@
   </header>
 
   <main class="min-h-[85vh]">
-    <section class="flex flex-col items-center justify-center text-center min-h-[85vh] px-4 relative overflow-hidden">
+    <!-- 1. Hero / Landing Section -->
+    <section id="hero" class="flex flex-col items-center justify-center text-center min-h-[85vh] px-4 relative overflow-hidden">
       <div class="mesh-gradient"></div>
       <div class="grid-background"></div>
+      <div class="process-flow-bg"></div>
       <div class="glow-orb orb-1"></div>
       <div class="glow-orb orb-2"></div>
-      <div class="floating-shape shape-1"></div>
-      <div class="floating-shape shape-2"></div>
-      <div class="floating-shape shape-3"></div>
       <div class="relative z-10 max-w-5xl fade-in-on-scroll">
-        <div class="mb-8 animate-slide-up">
-        <div class="inline-block px-6 py-3 modern-card rounded-full mb-8 border border-emerald-400/30">
-          <span class="text-emerald-400 text-sm font-semibold tracking-wide uppercase">Senior Software Engineer & ERPNext Specialist (5+ Yrs)</span>
-        </div>
-        </div>
-        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight animate-slide-up">
-          <span class="block mb-2">Hi, I'm</span>
-          <span class="text-emerald-400 bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-text">Ameer Muavia Shah</span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight animate-slide-up text-gray-100">
+          I turn repetitive processes into automated systems that run themselves.
         </h1>
-        <p class="text-2xl sm:text-3xl md:text-4xl text-gray-300 mb-6 font-light tracking-wide animate-slide-up" style="animation-delay: 0.2s">
-          Senior Software Engineer
-        </p>
-        <p class="text-lg sm:text-xl md:text-2xl text-gray-400 mb-16 font-medium animate-slide-up" style="animation-delay: 0.4s">
-          Frappe & ERPNext Specialist | Python | Automation & Integration Expert
-        </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style="animation-delay: 0.6s">
-          <a href="projects.html" class="group relative px-10 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-bold rounded-full overflow-hidden hover:scale-110 transition-all duration-500 shadow-2xl shadow-emerald-500/40 hover:shadow-emerald-500/60" aria-label="View my projects">
+        <h3 class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 font-light tracking-wide animate-slide-up" style="animation-delay: 0.1s">
+          ERPNext & Frappe specialist. I design workflows that save time, reduce errors, and make businesses efficient.
+        </h3>
+        <div class="animate-slide-up" style="animation-delay: 0.2s">
+          <a href="#contact" class="group relative inline-block px-10 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-bold rounded-full overflow-hidden hover:opacity-90 active:opacity-75 transition-opacity duration-200 shadow-2xl shadow-emerald-500/40 hover:shadow-emerald-500/60" aria-label="Let's Automate Your Business">
             <span class="relative z-10 flex items-center gap-2">
-              View My Work
+              Let's Automate Your Business
               <span class="transform group-hover:translate-x-1 transition-transform">→</span>
             </span>
-            <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </a>
-          <a href="contact.html#resume" class="px-10 py-4 border-2 border-emerald-400/50 text-emerald-400 font-bold rounded-full hover:border-emerald-400 hover:bg-emerald-400/10 hover:scale-110 transition-all duration-500 hover:shadow-xl hover:shadow-emerald-400/30 backdrop-blur-sm" aria-label="Download resume">
-            Download Resume
-          </a>
-          <a href="https://linkedin.com/in/maveeshah" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border-2 border-emerald-400/50 text-emerald-400 font-bold rounded-full hover:border-emerald-400 hover:bg-emerald-400/10 hover:scale-110 transition-all duration-500 hover:shadow-xl hover:shadow-emerald-400/30 backdrop-blur-sm" aria-label="Connect on LinkedIn">
-            Connect
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll">
+    <!-- 2. Outcome Highlights Section -->
+    <section id="outcomes" class="max-w-7xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll scroll-mt-20">
       <div class="text-center mb-16">
-        <div class="inline-block px-6 py-3 modern-card rounded-full mb-8 border border-emerald-400/30">
-          <span class="text-emerald-400 text-sm font-semibold tracking-wide uppercase">Core Expertise</span>
-        </div>
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 mb-4">Technology Stack</h2>
-        <p class="text-gray-400 text-lg">Technologies I work with daily</p>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 mb-4">Proven Results</h2>
+        <p class="text-gray-400 text-lg">Real outcomes across industries</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">💻</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">ERPNext / Frappe</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Custom Apps, DocTypes, Workflows & Dashboards</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="modern-card p-8 rounded-3xl group relative z-10">
+          <div class="text-4xl mb-4">⏰</div>
+          <h3 class="text-lg font-bold text-emerald-400 mb-2">Automated attendance & overtime</h3>
+          <p class="text-sm text-gray-400 mb-3">SMEs</p>
+          <p class="text-xl font-bold text-emerald-300">90% HR time saved</p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">🐍</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">Python</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Flask, FastAPI, Celery, Pandas & Automation</p>
+        <div class="modern-card p-8 rounded-3xl group relative z-10">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="text-lg font-bold text-emerald-400 mb-2">Real estate compliance tracking</h3>
+          <p class="text-sm text-gray-400 mb-3">Real Estate</p>
+          <p class="text-xl font-bold text-emerald-300">100% error reduction</p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">🔗</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">API Integration</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">REST APIs, OAuth2, Webhooks & Third-Party Sync</p>
+        <div class="modern-card p-8 rounded-3xl group relative z-10">
+          <div class="text-4xl mb-4">📈</div>
+          <h3 class="text-lg font-bold text-emerald-400 mb-2">Banking transaction automation</h3>
+          <p class="text-sm text-gray-400 mb-3">Finance</p>
+          <p class="text-xl font-bold text-emerald-300">50% faster reconciliations</p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">📊</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">SQL / MariaDB</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Schema Design, Query Optimization & Data Migration</p>
+        <div class="modern-card p-8 rounded-3xl group relative z-10">
+          <div class="text-4xl mb-4">🎓</div>
+          <h3 class="text-lg font-bold text-emerald-400 mb-2">School management automation</h3>
+          <p class="text-sm text-gray-400 mb-3">Education</p>
+          <p class="text-xl font-bold text-emerald-300">30% admin overhead saved</p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">📝</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">Jinja Templates</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Custom Reports, Print Formats & Dynamic Content</p>
+      </div>
+    </section>
+
+    <!-- 3. Strong Opinions Section -->
+    <section class="max-w-5xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 mb-4">How I Think About ERP & Automation</h2>
+      </div>
+      <div class="space-y-8">
+        <div class="opinion-statement modern-card p-8 rounded-3xl">
+          <p class="text-2xl font-bold text-gray-100 mb-3">
+            Most ERP implementations fail because developers don't understand the business.
+          </p>
+          <p class="text-gray-400 text-sm">
+            I spend time learning your processes before writing a single line of code.
+          </p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">⚙️</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">Automation</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Celery Workers, Scheduled Jobs & Data Processing</p>
+        <div class="opinion-statement modern-card p-8 rounded-3xl">
+          <p class="text-2xl font-bold text-gray-100 mb-3">
+            Automation isn't coding—it's eliminating human error while speeding up processes.
+          </p>
+          <p class="text-gray-400 text-sm">
+            The goal isn't to replace people, but to free them from repetitive tasks.
+          </p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">🎨</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">JavaScript</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Vanilla JS, jQuery, Frappe Client Scripts & UI</p>
+        <div class="opinion-statement modern-card p-8 rounded-3xl">
+          <p class="text-2xl font-bold text-gray-100 mb-3">
+            A retainer ensures systems evolve as your business grows, not just a one-time deployment.
+          </p>
+          <p class="text-gray-400 text-sm">
+            Your business changes. Your systems should adapt with it.
+          </p>
         </div>
-        <div class="modern-card p-8 rounded-3xl group relative z-10 cursor-pointer">
-          <span class="text-5xl mb-4 block group-hover:scale-125 rotate-12 transition-all duration-500">🔄</span>
-          <h3 class="text-lg font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors mb-2">Workflow Design</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Approval Processes, State Management & Business Logic</p>
+      </div>
+    </section>
+
+    <!-- 4. Services Section -->
+    <section id="services" class="max-w-6xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll scroll-mt-20">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 mb-4">What I Do</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="service-card modern-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-emerald-400 mb-3">ERPNext/Frappe Development →</h3>
+            <p class="text-gray-300 text-lg">From scratch or customization, I ensure your ERP works for your business, not the other way around.</p>
+          </div>
         </div>
+        <div class="service-card modern-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-emerald-400 mb-3">Workflow Design & Automation →</h3>
+            <p class="text-gray-300 text-lg">Processes that take hours will now take minutes, with zero errors.</p>
+          </div>
+        </div>
+        <div class="service-card modern-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-emerald-400 mb-3">API Integrations →</h3>
+            <p class="text-gray-300 text-lg">Systems talking to each other seamlessly, no manual intervention.</p>
+          </div>
+        </div>
+        <div class="service-card modern-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-emerald-400 mb-3">Custom Reports, Dashboards, Print Formats →</h3>
+            <p class="text-gray-300 text-lg">Data you can trust, presented the way your team needs it.</p>
+          </div>
+        </div>
+        <div class="service-card modern-card p-8 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-emerald-400 mb-3">Retainer Support →</h3>
+            <p class="text-gray-300 text-lg">Peace of mind with proactive system updates and optimization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Optional Narrative / Story Section -->
+    <section class="max-w-5xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll">
+      <div class="modern-card p-8 md:p-12 rounded-3xl">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-emerald-400 mb-6">The Difference Automation Makes</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4">
+              A small manufacturing company spent <span class="text-emerald-400 font-bold">40 hours weekly</span> on manual payroll and attendance. I automated their workflows.
+            </p>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Now, payroll runs automatically, errors vanished, and <span class="text-emerald-400 font-bold">HR time dropped by 90%</span>. That's the difference automation makes.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+              <div class="text-4xl font-black text-emerald-400 mb-2">40 hrs</div>
+              <div class="text-sm text-gray-400">Weekly manual work</div>
+            </div>
+            <div class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+              <div class="text-4xl font-black text-emerald-400 mb-2">90%</div>
+              <div class="text-sm text-gray-400">Time saved</div>
+            </div>
+            <div class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+              <div class="text-4xl font-black text-emerald-400 mb-2">0</div>
+              <div class="text-sm text-gray-400">Errors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Call-to-Action / Contact Section -->
+    <section id="contact" class="max-w-4xl mx-auto py-12 sm:py-20 px-6 fade-in-on-scroll" style="will-change: auto;">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 mb-4">Let's make your processes effortless.</h2>
+      </div>
+      <div class="modern-card p-8 md:p-12 rounded-3xl">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-semibold text-gray-300 mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-100 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all" placeholder="Your name">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-100 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all" placeholder="your.email@example.com">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-300 mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-100 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all resize-none" placeholder="Tell me about your automation needs..."></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button type="submit" class="flex-1 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-bold rounded-lg hover:opacity-90 active:opacity-75 transition-opacity duration-200 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50">
+              Send Message
+            </button>
+            <a href="mailto:mavee.shah@hotmail.com?subject=Let's Talk - Book a Call&body=Hi, I'd like to schedule a call to discuss automation opportunities for my business." class="flex-1 px-8 py-4 border-2 border-emerald-400/50 text-emerald-400 font-bold rounded-lg hover:border-emerald-400 hover:bg-emerald-400/10 active:bg-emerald-400/20 transition-all duration-200 text-center">
+              Book a Call / Let's Talk
+            </a>
+          </div>
+          <div class="mt-4 text-center">
+            <p class="text-sm text-gray-400">
+              Or reach out directly: <a href="mailto:mavee.shah@hotmail.com" class="text-emerald-400 hover:text-emerald-300 underline">mavee.shah@hotmail.com</a>
+            </p>
+          </div>
+        </form>
+        <div id="form-message" class="mt-4 hidden p-4 rounded-lg"></div>
       </div>
     </section>
 
   </main>
 
   <footer class="text-center py-8 border-t border-gray-800 text-sm text-gray-500">
-    <p>© 2025 Ameer Muavia Shah — Built with 💚 on GitHub Pages</p>
+    <p>© 2025 Ameer Muavia Shah — Turning processes into automated systems</p>
+    <p class="mt-2 text-xs text-gray-600">Ameer Muavia Shah | ERPNext & Frappe Specialist</p>
   </footer>
 </body>
 </html>
